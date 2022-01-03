@@ -1,23 +1,14 @@
 import { Specification } from "../../entities/Specification";
 import {
-  ISpecificationsRespository,
-  ISpecificationsRespositoryDTO,
-} from "../ISpecificationsRespository";
+  ISpecificationsRepository,
+  ISpecificationsRepositoryDTO,
+} from "../ISpecificationsRepository";
 
-class SpecificationsRespository implements ISpecificationsRespository {
+class SpecificationsRepository implements ISpecificationsRepository {
   private specifications: Specification[];
-
-  private static INSTANCE: SpecificationsRespository;
 
   private constructor() {
     this.specifications = [];
-  }
-
-  public static getInstance(): SpecificationsRespository {
-    if (!SpecificationsRespository.INSTANCE) {
-      SpecificationsRespository.INSTANCE = new SpecificationsRespository();
-    }
-    return SpecificationsRespository.INSTANCE;
   }
 
   findByName(name: string): Specification {
@@ -29,7 +20,7 @@ class SpecificationsRespository implements ISpecificationsRespository {
   list(): Specification[] {
     return this.specifications;
   }
-  create({ name, description }: ISpecificationsRespositoryDTO): Specification {
+  create({ name, description }: ISpecificationsRepositoryDTO): Specification {
     const specification = new Specification();
 
     Object.assign(specification, {
@@ -44,4 +35,4 @@ class SpecificationsRespository implements ISpecificationsRespository {
   }
 }
 
-export { SpecificationsRespository };
+export { SpecificationsRepository };
