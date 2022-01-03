@@ -11,7 +11,8 @@ class ListCategoriesUseCase {
   ) {}
 
   async execute(): Promise<Category[]> {
-    return this.categoriesRepository.list();
+    const categories = await this.categoriesRepository.list();
+    return categories;
   }
 }
 
