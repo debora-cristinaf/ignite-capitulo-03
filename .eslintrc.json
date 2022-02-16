@@ -16,12 +16,23 @@
   },
   "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier"],
   "rules": {
-    "prettier/prettier": [
-      "warn",
-      {
-        "endOfLine": "auto"
-      }
-    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto",
+          "printWidth": 100,
+          "trailingComma": "es5",
+          "semi": true,
+          "doubleQuote": true,
+          "jsxSingleQuote": true,
+          "singleQuote": false,
+          "useTabs": false,
+          "tabWidth": 4,
+          "jsxBracketSameLine": true
+        }
+      ]
+    },
     "camelcase": "off",
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
